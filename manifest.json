@@ -1,0 +1,7 @@
+{
+  "name": "fabelio_front",
+  "short_name": "fabelio_front",
+  "description": "single app fabelio",
+  "start_url": "/",
+  "display": "standalone"
+}
