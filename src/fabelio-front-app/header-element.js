@@ -213,8 +213,8 @@ class HeaderElement extends PolymerElement {
 
   mergeFilter() {
     let resultFilter = this.dataApi1.filter(element => this.filterByKeyword(element))
-                              .filter(element => this.FilterByFurniture(element))
-                              .filter(element => this.FilterByDelivery(element))
+                                    .filter(element => this.FilterByFurniture(element))
+                                    .filter(element => this.FilterByDelivery(element))
     this.rewriteOriginalData(resultFilter)
   }
 
@@ -244,7 +244,7 @@ class HeaderElement extends PolymerElement {
 
   rewriteOriginalData(resultFilter) {
     let product_list = this.fabelio_front_app.$.main_element.$.product_list
-    
+
     product_list.dataApi = resultFilter.map(item => {
       return {delivery_time: `${item.delivery_time} Days`, description: `${item.description.substring(0, 114)}...`, furniture_style: item.furniture_style, name: item.name, price: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(item.price)}
     })
