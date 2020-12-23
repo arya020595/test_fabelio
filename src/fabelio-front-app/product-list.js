@@ -47,22 +47,20 @@ class ProductList extends PolymerElement {
         type: Array,
         value: []
       },
-      data_temp: {
-        type: Array,
-        value: []
+      fabelio_front_app: {
+        type: String,
+        value: document.getElementById("fabelio_front")
       },
     };
   }
 
   ready() {
     super.ready()
-    let fabelio_front_app = document.getElementById("fabelio_front")
-    
-    fabelio_front_app.addEventListener('getData', (e)=> {
+        
+    this.fabelio_front_app.addEventListener('getData', (e)=> {
       this.dataApi = e.detail.data.products.map(item => {
         return {delivery_time: `${item.delivery_time} Days`, description: `${item.description.substring(0, 114)}...`, furniture_style: item.furniture_style, name: item.name, price: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(item.price)}
       })
-      this.data_temp = this.dataApi
     })
   }
 
