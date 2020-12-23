@@ -28,10 +28,6 @@ class FabelioFrontApp extends PolymerElement {
   }
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'fabelio-front-app'
-      },
       dataApi: {
         type: Object,
         value: {}

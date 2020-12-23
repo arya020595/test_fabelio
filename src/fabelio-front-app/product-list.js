@@ -39,10 +39,6 @@ class ProductList extends PolymerElement {
   }
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'product-list'
-      },
       dataApi: {
         type: Array,
         value: []

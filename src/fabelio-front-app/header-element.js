@@ -95,19 +95,7 @@ class HeaderElement extends PolymerElement {
   }
   static get properties() {
     return {
-      prop1: {
-        type: String,
-        value: 'header-element'
-      },
       dataApi: {
-        type: Array,
-        value: []
-      },
-      dataApi1: {
-        type: Array,
-        value: []
-      },
-      dataApi2: {
         type: Array,
         value: []
       },
@@ -160,7 +148,6 @@ class HeaderElement extends PolymerElement {
     this.fabelio_front_app.addEventListener('getData', (e)=> {
       this.SelectFurniture = e.detail.data.furniture_styles
       this.dataApi = e.detail.data.products
-      this.dataApi1 = this.dataApi
     })
 
     this.$.wrapper_header.addEventListener("click", (e)=>{
@@ -212,7 +199,7 @@ class HeaderElement extends PolymerElement {
   }
 
   mergeFilter() {
-    let resultFilter = this.dataApi1.filter(element => this.filterByKeyword(element))
+    let resultFilter =  this.dataApi.filter(element => this.filterByKeyword(element))
                                     .filter(element => this.FilterByFurniture(element))
                                     .filter(element => this.FilterByDelivery(element))
     this.rewriteOriginalData(resultFilter)
