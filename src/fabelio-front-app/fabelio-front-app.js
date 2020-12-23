@@ -11,7 +11,7 @@ class FabelioFrontApp extends PolymerElement {
         auto
         method="get"
         id="getData"
-        url="http://www.mocky.io/v2/5c9105cb330000112b649af8"
+        url="https://www.mocky.io/v2/5c9105cb330000112b649af8"
         handle-as="json"
         on-response="handleResponse">
       </iron-ajax>
@@ -47,7 +47,6 @@ class FabelioFrontApp extends PolymerElement {
     let response = request.response
     this.dataApi = response
     this.dispatchEvent(new CustomEvent('getData', {detail: {data: response}}))
-    this.dispatchEvent(new CustomEvent('getDataNew', {detail: {data: response}}))
   }
 }
 
