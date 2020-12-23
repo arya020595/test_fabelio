@@ -212,12 +212,10 @@ class HeaderElement extends PolymerElement {
   }
 
   mergeFilter() {
-    let result = this.dataApi1.filter(element => this.filterByKeyword(element))
+    let resultFilter = this.dataApi1.filter(element => this.filterByKeyword(element))
                               .filter(element => this.FilterByFurniture(element))
                               .filter(element => this.FilterByDelivery(element))
-
-    let product_list = this.fabelio_front_app.$.main_element.$.product_list
-    product_list.dataApi = result
+    this.rewriteOriginalData(resultFilter)
   }
 
   filterByKeyword(element){
@@ -242,6 +240,14 @@ class HeaderElement extends PolymerElement {
     } else {
       return this.ListSelectDeliveryTime.some(x => parseInt(element.delivery_time) <= parseInt(x))
     }
+  }
+
+  rewriteOriginalData(resultFilter) {
+    let product_list = this.fabelio_front_app.$.main_element.$.product_list
+    
+    product_list.dataApi = resultFilter.map(item => {
+      return {delivery_time: `${item.delivery_time} Days`, description: `${item.description.substring(0, 114)}...`, furniture_style: item.furniture_style, name: item.name, price: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(item.price)}
+    })
   }
 }
 
