@@ -26,14 +26,6 @@ class FabelioFrontApp extends PolymerElement {
       </div>
     `
   }
-  static get properties() {
-    return {
-      dataApi: {
-        type: Object,
-        value: {}
-      }
-    }
-  }
 
   ready() {
     super.ready()
@@ -41,7 +33,6 @@ class FabelioFrontApp extends PolymerElement {
 
   handleResponse(e, request) {
     let response = request.response
-    this.dataApi = response
     this.dispatchEvent(new CustomEvent('getData', {detail: {data: response}}))
   }
 }

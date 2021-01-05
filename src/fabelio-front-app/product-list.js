@@ -41,7 +41,8 @@ class ProductList extends PolymerElement {
     return {
       dataApi: {
         type: Array,
-        value: []
+        value: [],
+        notify: true
       },
       fabelio_front_app: {
         type: String,

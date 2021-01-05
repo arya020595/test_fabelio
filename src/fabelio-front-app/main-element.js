@@ -14,18 +14,6 @@ class MainElement extends PolymerElement {
       </div>
     `
   }
-  static get properties() {
-    return {
-      prop1: {
-        type: String,
-        value: 'main-element'
-      },
-      dataApi: {
-        type: Object,
-        value: {}
-      }
-    }
-  }
 
   ready() {
     super.ready()

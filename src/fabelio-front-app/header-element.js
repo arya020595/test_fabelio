@@ -232,9 +232,9 @@ class HeaderElement extends PolymerElement {
   rewriteOriginalData(resultFilter) {
     let product_list = this.fabelio_front_app.$.main_element.$.product_list
 
-    product_list.dataApi = resultFilter.map(item => {
+    product_list.set('dataApi', resultFilter.map(item => {
       return {delivery_time: `${item.delivery_time} Days`, description: `${item.description.substring(0, 114)}...`, furniture_style: item.furniture_style, name: item.name, price: new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(item.price)}
-    })
+    }));
   }
 }
 
